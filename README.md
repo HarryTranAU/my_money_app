@@ -1,6 +1,6 @@
 # Idea
 
-The idea is a budget/money management app. The best way to describe my vision for the app is a lite version of YNAB. My app initially will support csv files imported from the big 4 Aussie banks (Commbank, NAB, Westpac, ANZ)
+The idea is a budget/money management app. The best way to describe my vision for the app is a lite version of [YNAB](https://www.youneedabudget.com/). My app initially will support csv files imported from the big 4 Aussie banks (Commbank, NAB, Westpac, ANZ)
 
 My app will allow users to:
 
