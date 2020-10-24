@@ -16,6 +16,35 @@ My app will allow users to:
  - view net worth (graph?)
  - view income/expense
 
+# Installation (Linux)
+
+Install Python and git
+```
+sudo apt-get update
+sudo apt-get install git
+sudo apt-get install python3
+```
+
+Git clone and Open Folder
+```
+git clone https://github.com/HarryTranAU/my_money_app.git
+cd my_money_app
+```
+
+Optional: Virtual Environment (Recommended)
+
+```
+sudo apt-get install python3-venv
+python3 -m venv venv
+source venv/bin/activate
+```
+
+Install Pip/requirements
+```
+sudo apt-get install python3-pip
+pip install -r requirements.txt
+```
+
 # Wireframes
 
 ## Login Page/Landing Page
