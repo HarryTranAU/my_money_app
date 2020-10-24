@@ -45,6 +45,16 @@ sudo apt-get install python3-pip
 pip install -r requirements.txt
 ```
 
+# CI/CD Pipeline
+
+**`Github Actions`**
+
+ - [Setup Python (Github Marketplace)](https://github.com/marketplace/actions/setup-python)
+ - Install dependencies
+ - Run Tests (`unittest`)
+ - Check Data Types (`mypy`)
+ - Style Check (`flake8`) 
+
 # Wireframes
 
 ## Login Page/Landing Page
