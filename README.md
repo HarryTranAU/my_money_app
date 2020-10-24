@@ -16,7 +16,7 @@ My app will allow users to:
  - view net worth (graph?)
  - view income/expense
 
-# wireframes
+# Wireframes
 
 ## Login Page/Landing Page
 
