@@ -82,3 +82,19 @@ The Budget page is where the user will be creating their budget. The only editab
 ## Reports - Net Worth
 
 ![Reports - Net Worth](docs/wireframes/Reports_Net_Worth.png)
+
+
+## Database
+
+1. Each User can have multiple Budgets.
+2. Each Budget can have multiple categories. E.g. Rent, Groceries, Utilities, Eating Out, etc.
+3. Each Budget can have multiple Bank Accounts. E.g. Savings accounts, Credit Card account, etc.
+4. Each Bank Account can have multiple Transactions.
+5. Each Transaction can only have one Payee.
+6. Each Payee can have multiple transactions. E.g. Multiple trips to Coles. Same Payee different transaction.
+7. Each Payee can only belong to one Category. E.g. Coles cannot belong to both Groceries and Eating Out.
+8. Each Category can have multiple Payees. E.g. Groceries category can have Coles, Woolworths, IGA, etc.
+
+
+![Database Schema w/ crow feet notation](docs/database_schema_w_notation.png)
+
