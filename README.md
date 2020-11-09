@@ -61,15 +61,27 @@ pip install -r requirements.txt
 
 ![Login Page](docs/wireframes/Login_Page.png)
 
+## Register User
+
+![Register User Page](docs/wireframes/Register_User.png)
+
+## Forgot User
+
+![Forgot User Page](docs/wireframes/Forgot_User.png)
+
 ## User Settings
 
-![User Settings](docs/wireframes/User_Settings.png)
+![User Settings Page](docs/wireframes/User_Settings.png)
 
-## Budget Page
+## Budget Selection
+
+![Budget Selection Page](docs/wireframes/Budget_Selection.png)
+
+## Budget Overview
 
 The Budget page is where the user will be creating their budget. The only editable fields should be the categories and budget columns. Activity column is where the transactions related to the category is summed up and shown. The Available column is the budget column minus the activity column. The user should be able to create and delete a category.
 
-![Budget](docs/wireframes/Budget.png)
+![Budget Overview Page](docs/wireframes/Budget_Overview.png)
 
 ## Accounts Page
 
