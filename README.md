@@ -59,31 +59,57 @@ pip install -r requirements.txt
 
 ## Login Page/Landing Page
 
+1. The Login Page is the users starting point.
+2. Login will require an existing username and matching password to continue.
+3. Successful login will proceed to the Budget Selection Page.
+4. Register New User will proceed to Register User Page.
+5. Forgot Password will proceed to Forgot User Page.
+
 ![Login Page](docs/wireframes/Login_Page.png)
 
 ## Register User
+
+1. Username and Email must be unique.
+2. Successful registration will lead back to Login Page.
 
 ![Register User Page](docs/wireframes/Register_User.png)
 
 ## Forgot User
 
+1. A valid existing email is required to reset password.
+2. A temporary password will be sent to the provided email.
+
 ![Forgot User Page](docs/wireframes/Forgot_User.png)
 
 ## User Settings
+
+1. User will be able to add and remove bank accounts from this page.
+2. Note: Username is displayed to show which user is currently logged in.
 
 ![User Settings Page](docs/wireframes/User_Settings.png)
 
 ## Budget Selection
 
+1. The Budget Selection screen will be used to select which budget to view.
+2. The budget selected will proceed to the Budget Overview page.
+3. Budgets can be created and deleted on this page.
+
 ![Budget Selection Page](docs/wireframes/Budget_Selection.png)
 
 ## Budget Overview
 
-The Budget page is where the user will be creating their budget. The only editable fields should be the categories and budget columns. Activity column is where the transactions related to the category is summed up and shown. The Available column is the budget column minus the activity column. The user should be able to create and delete a category.
+1. The user's budget will be customized in the budget overview page.
+2. The Category column will initialize blank. The user should be able to add and remove 'Categories' and assign a number to the category.
+3. 'Budgeted' column can be edited by the user. Numbers Only.
+4. 'Activity' column will reflect transactions in that category. User cannot edit this column.
+5. 'Available' column will show the difference between the Budget and Activity column. E.g. $100 was budgeted for groceries, $50 was spent on groceries reflected in the transactions, $50 is remaining as 'Available'. User cannot edit this column.
 
 ![Budget Overview Page](docs/wireframes/Budget_Overview.png)
 
 ## Accounts Page
+
+1. The Accounts Page will show transactions from the corresponding account(savings, credit, etc).
+2. 
 
 ![Accounts](docs/wireframes/Accounts.png)
 
