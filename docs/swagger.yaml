@@ -1,0 +1,364 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: My Money App - API
+  description: 'API doc for https://github.com/HarryTranAU/my_money_app'
+tags:
+  - name: User
+paths:
+  /register:
+    post:
+      tags: [User]
+      summary: Create a new User
+      responses: 
+        '200':
+          description: OK
+  
+  /{uid}:
+    get:
+      tags: [User]
+      summary: User information
+      parameters: 
+        - in: path
+          name: uid
+          schema:
+            type: integer
+          required: True
+          description: The User ID
+      responses:
+        '200':
+          description: OK
+    put:
+      tags: [User]
+      summary: Update user information
+      parameters: 
+        - in: path
+          name: uid
+          schema:
+            type: integer
+          required: True
+          description: The User ID
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags: [User]
+      summary: Delete user
+      parameters: 
+        - in: path
+          name: uid
+          schema:
+            type: integer
+          required: True
+          description: The User ID
+      responses:
+        '200':
+          description: OK
+  /{uid}/budget:
+    get:
+      tags: [User]
+      summary: List of user budgets
+      parameters: 
+        - in: path
+          name: uid
+          schema:
+            type: integer
+          required: True
+          description: The User ID
+      responses:
+        '200':
+          description: OK
+    post:
+      tags: [User]
+      summary: Create a budget
+      parameters: 
+        - in: path
+          name: uid
+          schema:
+            type: integer
+          required: True
+          description: The User ID
+      responses:
+        '200':
+          description: OK
+    put:
+      tags: [User]
+      summary: update budget information
+      parameters: 
+        - in: path
+          name: uid
+          schema:
+            type: integer
+          required: True
+          description: The User ID
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags: [User]
+      summary: delete budget
+      parameters: 
+        - in: path
+          name: uid
+          schema:
+            type: integer
+          required: True
+          description: The User ID
+      responses:
+        '200':
+          description: OK
+  /{uid}/{budgetid}/accounts:
+    get:
+      tags: [User]
+      summary: List of linked accounts for specific budget
+      parameters: 
+        - in: path
+          name: uid
+          schema:
+            type: integer
+          required: True
+          description: The User ID
+        - in: path
+          name: budgetid
+          schema:
+            type: integer
+          required: True
+          description: The budget ID
+      responses:
+        '200':
+          description: OK
+    post:
+      tags: [User]
+      summary: add a linked account
+      parameters: 
+        - in: path
+          name: uid
+          schema:
+            type: integer
+          required: True
+          description: The User ID
+        - in: path
+          name: budgetid
+          schema:
+            type: integer
+          required: True
+          description: The budget ID
+      responses:
+        '200':
+          description: OK
+    put:
+      tags: [User]
+      summary: update account information
+      parameters: 
+        - in: path
+          name: uid
+          schema:
+            type: integer
+          required: True
+          description: The User ID
+        - in: path
+          name: budgetid
+          schema:
+            type: integer
+          required: True
+          description: The budget ID
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags: [User]
+      summary: delete account
+      parameters: 
+        - in: path
+          name: uid
+          schema:
+            type: integer
+          required: True
+          description: The User ID
+        - in: path
+          name: budgetid
+          schema:
+            type: integer
+          required: True
+          description: The budget ID
+      responses:
+        '200':
+          description: OK
+  /{uid}/{budgetid}/{accountid}:
+    get:
+      tags: [User]
+      summary: list of transactions for specific account
+      parameters: 
+        - in: path
+          name: uid
+          schema:
+            type: integer
+          required: True
+          description: The User ID
+        - in: path
+          name: budgetid
+          schema:
+            type: integer
+          required: True
+          description: The budget ID
+        - in: path
+          name: accountid
+          schema:
+            type: integer
+          required: True
+          description: The account ID
+      responses:
+        '200':
+          description: OK
+    post:
+      tags: [User]
+      summary: create a new transaction
+      parameters: 
+        - in: path
+          name: uid
+          schema:
+            type: integer
+          required: True
+          description: The User ID
+        - in: path
+          name: budgetid
+          schema:
+            type: integer
+          required: True
+          description: The budget ID
+        - in: path
+          name: accountid
+          schema:
+            type: integer
+          required: True
+          description: The account ID
+      responses:
+        '200':
+          description: OK
+    put:
+      tags: [User]
+      summary: update transaction
+      parameters: 
+        - in: path
+          name: uid
+          schema:
+            type: integer
+          required: True
+          description: The User ID
+        - in: path
+          name: budgetid
+          schema:
+            type: integer
+          required: True
+          description: The budget ID
+        - in: path
+          name: accountid
+          schema:
+            type: integer
+          required: True
+          description: The account ID
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags: [User]
+      summary: delete transaction
+      parameters: 
+        - in: path
+          name: uid
+          schema:
+            type: integer
+          required: True
+          description: The User ID
+        - in: path
+          name: budgetid
+          schema:
+            type: integer
+          required: True
+          description: The budget ID
+        - in: path
+          name: accountid
+          schema:
+            type: integer
+          required: True
+          description: The account ID
+      responses:
+        '200':
+          description: OK
+  /{uid}/{budgetid}/categories:
+    get:
+      tags: [User]
+      summary: list of categories for specific budget
+      parameters: 
+        - in: path
+          name: uid
+          schema:
+            type: integer
+          required: True
+          description: The User ID
+        - in: path
+          name: budgetid
+          schema:
+            type: integer
+          required: True
+          description: The budget ID
+      responses:
+        '200':
+          description: OK
+    post:
+      tags: [User]
+      summary: create category
+      parameters: 
+        - in: path
+          name: uid
+          schema:
+            type: integer
+          required: True
+          description: The User ID
+        - in: path
+          name: budgetid
+          schema:
+            type: integer
+          required: True
+          description: The budget ID
+      responses:
+        '200':
+          description: OK
+    put:
+      tags: [User]
+      summary: update category information
+      parameters: 
+        - in: path
+          name: uid
+          schema:
+            type: integer
+          required: True
+          description: The User ID
+        - in: path
+          name: budgetid
+          schema:
+            type: integer
+          required: True
+          description: The budget ID
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags: [User]
+      summary: delete category
+      parameters: 
+        - in: path
+          name: uid
+          schema:
+            type: integer
+          required: True
+          description: The User ID
+        - in: path
+          name: budgetid
+          schema:
+            type: integer
+          required: True
+          description: The budget ID
+      responses:
+        '200':
+          description: OK
