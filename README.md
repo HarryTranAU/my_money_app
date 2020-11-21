@@ -133,7 +133,7 @@ pip install -r requirements.txt
 ![Reports - Net Worth](docs/wireframes/Reports_Net_Worth.png)
 
 
-## Database
+# Database
 
 1. Each User can have multiple Budgets.
 2. Each Budget can have multiple categories. E.g. Rent, Groceries, Utilities, Eating Out, etc.
@@ -147,3 +147,6 @@ pip install -r requirements.txt
 
 ![Database Schema w/ crow feet notation](docs/database_schema_w_notation.png)
 
+# OpenAPI
+
+[Interactive UI](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/HarryTranAU/my_money_app/main/docs/swagger.yaml)
