@@ -85,6 +85,7 @@ pip install -r requirements.txt
 
 1. User will be able to add and remove bank accounts from this page.
 2. Note: Username is displayed to show which user is currently logged in.
+3. The user will be able to change/add a profile picture.
 
 ![User Settings Page](docs/wireframes/User_Settings.png)
 
