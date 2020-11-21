@@ -109,15 +109,25 @@ pip install -r requirements.txt
 ## Accounts Page
 
 1. The Accounts Page will show transactions from the corresponding account(savings, credit, etc).
-2. 
+2. The user will be able to change between accounts from a drop down list or equivalent.
+3. A single transaction can be added by manually entering date, payee, category, memo (description), inflow or outflow (Note: a transaction cannot be both an inflow and outflow).
+4. The user will have an option to import transactions through a CSV file instead of inputting transactions manually. The bank will need to be select in case the CSV is structured differently for different banks.
+5. The balance shown should reflect the current state of the account. Should there be no outstanding transactions to add, the balance should match the user's real (bank) account.
+ 
 
 ![Accounts](docs/wireframes/Accounts.png)
 
 ## Reports - Cashflow
 
+1. The Cashflow page will show the users income and expense for the different months.
+2. The different reporting pages can be navigated through a menu.
+
 ![Reports - Cashflow](docs/wireframes/Reports_Cashflow.png)
 
 ## Reports - Net Worth
+
+1. The net worth page will show the user's overall assets and liabilities over a period of time.
+2. The different reporting pages can be navigated through a menu.
 
 ![Reports - Net Worth](docs/wireframes/Reports_Net_Worth.png)
 
