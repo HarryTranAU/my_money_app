@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, abort
 from models.Budget import Budget
 from schemas.BudgetSchema import budgets_schema, budget_schema
 from main import db
@@ -19,8 +19,8 @@ def budget_create():
 @budgets.route("/", methods=["GET"])
 def budget_index():
     budgets = Budget.query.all()
-    serialised_data = budgets_schema.dump(budgets)
-    return jsonify(serialised_data)
+    return jsonify(budgets_schema.dump(budgets))
+
 
 @budgets.route("/<int:id>", methods=["GET"])
 def budget_show(id):
@@ -28,11 +28,22 @@ def budget_show(id):
     return jsonify(budget_schema.dump(budget))
 
 
-# @budgets.route("/", methods=["PUT"])
-# def budget_update():
-#     return "PUT function"
+@budgets.route("/<int:id>", methods=["PUT", "PATCH"])
+def budget_update(id):
+    budgets = Budget.query.filter_by(id=id)
+    budget_fields = budget_schema.load(request.json)
+    budgets.update(budget_fields)
+    db.session.commit()
+    return jsonify(budget_schema.dump(budgets[0]))
 
 
-# @budgets.route("/", methods=["DELETE"])
-# def budget_delete():
-#     return "DELETE function"
+@budgets.route("/<int:id>", methods=["DELETE"])
+def budget_delete(id):
+    budget = Budget.query.get(id)
+
+    if not budget:
+        return abort(404)
+
+    db.session.delete(budget)
+    db.session.commit()
+    return jsonify(budget_schema.dump(budget))
