@@ -149,4 +149,6 @@ pip install -r requirements.txt
 
 # OpenAPI
 
+Endpoints documented using OpenAPI 3.0.3.
+
 [Interactive UI](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/HarryTranAU/my_money_app/main/docs/swagger.yaml)
