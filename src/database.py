@@ -1,14 +1,8 @@
-import psycopg2
+from flask_sqlalchemy import SQLAlchemy
 
 
-connection = psycopg2.connect(
-    database="my_money_app",
-    user="postgres",
-    password="1234",
-    host="localhost"
-)
-
-cursor = connection.cursor()
-
-cursor.execute("create table if not exists books (id serial primary key, title varchar);")
-connection.commit()
+def init_db(app):
+    app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql+psycopg2://postgres:1234@localhost:5432/my_money_app"
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    db = SQLAlchemy(app)
+    return db
