@@ -22,6 +22,11 @@ def budget_index():
     serialised_data = budgets_schema.dump(budgets)
     return jsonify(serialised_data)
 
+@budgets.route("/<int:id>", methods=["GET"])
+def budget_show(id):
+    budget = Budget.query.get(id)
+    return jsonify(budget_schema.dump(budget))
+
 
 # @budgets.route("/", methods=["PUT"])
 # def budget_update():
