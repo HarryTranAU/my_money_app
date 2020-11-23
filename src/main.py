@@ -4,6 +4,7 @@ from database import init_db
 
 load_dotenv()
 app = Flask(__name__)
+app.config.from_object("settings.app_config")
 db = init_db(app)
 
 from flask_marshmallow import Marshmallow
