@@ -51,3 +51,19 @@ class TestBudgets(unittest.TestCase):
 
         budget = Budget.query.get(budget.id)
         self.assertIsNone(budget)
+
+    def test_budget_update(self):
+        budget = Budget.query.first()
+        budget_name_before = budget.name
+
+        response = self.client.put(f"/budget/{budget.id}", json={
+            "name": "Test Budget"
+        })
+
+        data = response.get_json()
+        budget_name_after = data["name"]
+
+        self.assertEqual(response.status_code, 200)
+        self.assertIsInstance(data, dict)
+        self.assertNotEqual(budget_name_before, budget_name_after)
+        self.assertEqual(budget_name_after, "Test Budget")
