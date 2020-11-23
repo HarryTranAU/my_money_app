@@ -45,6 +45,14 @@ sudo apt-get install python3-pip
 pip install -r requirements.txt
 ```
 
+## Custom Flask Commands
+
+```
+flask db-custom create # Create all tables
+flask db-custom drop   # Drop all tables
+flask db-custom seed   # Seed all tables
+```
+
 # CI/CD Pipeline
 
 **`Github Actions`**
