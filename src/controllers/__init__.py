@@ -1,5 +1,7 @@
 from controllers.budget_controller import budgets
+from commands import db_commands
 
 registerable_controllers = [
-    budgets
+    budgets,
+    db_commands
 ]
