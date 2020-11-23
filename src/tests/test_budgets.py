@@ -41,3 +41,13 @@ class TestBudgets(unittest.TestCase):
 
         budget = Budget.query.get(data["id"])
         self.assertIsNotNone(budget)
+
+    def test_budget_delete(self):
+        budget = Budget.query.first()
+
+        response = self.client.delete(f"/budget/{budget.id}")
+
+        self.assertEqual(response.status_code, 200)
+
+        budget = Budget.query.get(budget.id)
+        self.assertIsNone(budget)
