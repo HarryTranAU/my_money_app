@@ -1,10 +1,8 @@
 from dotenv import load_dotenv
-load_dotenv()
-
 from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
-
+load_dotenv()
 db = SQLAlchemy()
 ma = Marshmallow()
 
