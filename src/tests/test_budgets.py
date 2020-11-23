@@ -1,5 +1,6 @@
 import unittest
 from main import create_app, db
+from models.Budget import Budget
 
 
 class TestBudgets(unittest.TestCase):
@@ -26,3 +27,17 @@ class TestBudgets(unittest.TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertIsInstance(data, list)
+
+    def test_budget_create(self):
+        response = self.client.post("/budget/", json={
+            "name": "Test Budget"
+        })
+
+        data = response.get_json()
+
+        self.assertEqual(response.status_code, 200)
+        self.assertIsInstance(data, dict)
+        self.assertTrue(bool("id" in data.keys()))
+
+        budget = Budget.query.get(data["id"])
+        self.assertIsNotNone(budget)
