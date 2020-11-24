@@ -2,9 +2,12 @@ from dotenv import load_dotenv
 from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
+from flask_bcrypt import Bcrypt
+
 load_dotenv()
 db = SQLAlchemy()
 ma = Marshmallow()
+bcrypt = Bcrypt()
 
 
 def create_app():
@@ -13,6 +16,7 @@ def create_app():
 
     db.init_app(app)
     ma.init_app(app)
+    bcrypt.init_app(app)
 
     from controllers import registerable_controllers
 
