@@ -9,6 +9,7 @@ class User(db.Model):
     email = db.Column(db.String(), nullable=False, unique=True)
     password = db.Column(db.String(), nullable=False)
     profile_picture = db.Column(db.String())
+    budgets = db.relationship("Budget", backref="user", lazy="dynamic")
 
     def __repr__(self):
         return f"<User {self.email}>"

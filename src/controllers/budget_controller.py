@@ -1,9 +1,9 @@
-from flask import Blueprint, jsonify, request, abort
-from flask_jwt_extended import jwt_required
 from models.Budget import Budget
 from models.User import User
-from schemas.BudgetSchema import budgets_schema, budget_schema
 from main import db
+from schemas.BudgetSchema import budgets_schema, budget_schema
+from flask_jwt_extended import jwt_required, get_jwt_identity
+from flask import Blueprint, jsonify, request, abort
 budgets = Blueprint("budgets", __name__, url_prefix="/budget")
 
 
@@ -11,9 +11,17 @@ budgets = Blueprint("budgets", __name__, url_prefix="/budget")
 @jwt_required
 def budget_create():
     budget_fields = budget_schema.load(request.json)
+    user_id = get_jwt_identity()
+
+    user = User.query.get(user_id)
+
+    if not user:
+        return abort(401, description="Invalid user")
+
     new_budget = Budget()
     new_budget.name = budget_fields["name"]
-    db.session.add(new_budget)
+
+    user.budgets.append(new_budget)
     db.session.commit()
 
     return jsonify(budget_schema.dump(new_budget))
