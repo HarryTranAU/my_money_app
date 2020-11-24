@@ -12,10 +12,18 @@ tags:
 
 
 paths:
-  /register:
+  /auth/register:
     post:
       tags: [User]
       summary: Create a new User
+      responses: 
+        '200':
+          description: OK
+
+  /auth/login:
+    post:
+      tags: [User]
+      summary: Login User
       responses: 
         '200':
           description: OK
