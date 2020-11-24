@@ -4,6 +4,7 @@ from main import db
 from schemas.BudgetSchema import budgets_schema, budget_schema
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from flask import Blueprint, jsonify, request, abort
+from sqlalchemy.orm import joinedload
 budgets = Blueprint("budgets", __name__, url_prefix="/budget")
 
 
@@ -29,7 +30,7 @@ def budget_create():
 
 @budgets.route("/", methods=["GET"])
 def budget_index():
-    budgets = Budget.query.all()
+    budgets = Budget.query.options(joinedload("user")).all()
     return jsonify(budgets_schema.dump(budgets))
 
 
