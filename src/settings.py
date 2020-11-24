@@ -4,6 +4,7 @@ import os
 class Config(object):
     SQLALCHEMY_DATABASE_URI = os.getenv("DB_URI")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    JWT_SECRET_KEY = "notduck"
 
     @property
     def SQLALCHEMY_DATABASE_URI(self):
@@ -14,14 +15,25 @@ class Config(object):
 
         return value
 
+
 class DevelopmentConfig(Config):
     DEBUG = True
 
+
 class ProductionConfig(Config):
-    pass
+    @property
+    def JWT_SECRET_KEY(self):
+        value = os.getenv("JWT_SECRET_KEY")
+
+        if not value:
+            raise ValueError("JWT Secret Key is not set")
+
+        return value
+
 
 class TestingConfig(Config):
     TESTING = True
+
 
 environment = os.getenv("FLASK_ENV")
 
