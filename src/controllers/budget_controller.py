@@ -42,21 +42,40 @@ def budget_show(id):
 @budgets.route("/<int:id>", methods=["PUT", "PATCH"])
 @jwt_required
 def budget_update(id):
-    budgets = Budget.query.filter_by(id=id)
     budget_fields = budget_schema.load(request.json)
+    user_id = get_jwt_identity()
+
+    user = User.query.get(user_id)
+
+    if not user:
+        return abort(401, description="Invalid user")
+
+    budgets = Budget.query.filter_by(id=id, user_id=user.id)
+    
+    if budgets.count() != 1:
+        return abort(401, description="Unauthorized to update this book")
+
     budgets.update(budget_fields)
     db.session.commit()
+
     return jsonify(budget_schema.dump(budgets[0]))
 
 
 @budgets.route("/<int:id>", methods=["DELETE"])
 @jwt_required
 def budget_delete(id):
-    budget = Budget.query.get(id)
+    user_id = get_jwt_identity()
+    user = User.query.get(user_id)
+
+    if not user:
+        return abort(401, description="Invalid user")
+
+    budget = Budget.query.filter_by(id=id, user_id=user.id).first()
 
     if not budget:
-        return abort(404)
+        return abort(400)
 
     db.session.delete(budget)
     db.session.commit()
+
     return jsonify(budget_schema.dump(budget))
