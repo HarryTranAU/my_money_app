@@ -28,14 +28,12 @@ def budget_create():
 
 
 @budgets.route("/", methods=["GET"])
-@jwt_required
 def budget_index():
     budgets = Budget.query.all()
     return jsonify(budgets_schema.dump(budgets))
 
 
 @budgets.route("/<int:id>", methods=["GET"])
-@jwt_required
 def budget_show(id):
     budget = Budget.query.get(id)
     return jsonify(budget_schema.dump(budget))
